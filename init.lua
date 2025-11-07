@@ -51,8 +51,10 @@ int32_t main() {
 
 vim.api.nvim_create_autocmd("BufNewFile", {
     pattern = "*.cpp",
-    callback = function()
-        vim.api.nvim_put(vim.split(cpp_template, "\n"), "l", true, true)
+    callback = function(args)
+        local bufnr = args.buf
+        local lines = vim.split(cpp_template, "\n")
+		vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
         vim.cmd("normal! gg") 
     end,
 })

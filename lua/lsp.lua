@@ -15,15 +15,15 @@ local on_attach = function(client, bufnr)
 end
 
 -- connect clangd to .cpp buffers
-vim.api.nvim_create_autocmd("BufReadPost", {
-    pattern = "*.cpp",
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "cpp",
     callback = function(args)
         local bufnr = args.buf
         vim.lsp.start({
             name = "clangd",
             cmd = { "clangd" },
             capabilities = capabilities,
-            buffer = bufnr,  -- **
+            buffer = bufnr,
             root_dir = vim.fs.dirname(vim.fs.find({".git", "compile_commands.json"}, { upward = true })[1] or vim.api.nvim_buf_get_name(bufnr)),
             on_attach = on_attach,
         })
@@ -34,5 +34,5 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_autocmd("CursorHoldI", {
     callback = function()
         vim.diagnostic.open_float(nil, { focusable = false })
-    end
+    end,
 })
