@@ -52,8 +52,16 @@ return {
     
     -- Discord rich presence
 	{
-  	'vyfor/cord.nvim',
-  	build = ':Cord update',
-  -- opts = {}
+  		'vyfor/cord.nvim',
+  		build = ':Cord update',
+  		-- opts = {}
+	},
+
+
+	-- Rainbow parens	
+	{
+  		"hiphish/rainbow-delimiters.nvim",
+
 	}
+
 }

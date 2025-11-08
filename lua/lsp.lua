@@ -1,4 +1,15 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local cmp = require("cmp")
+
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+  }),
+
+  sources = {
+    { name = "nvim_lsp" },
+  },
+})
 
 local on_attach = function(client, bufnr)
     local opts = { noremap=true, silent=true }

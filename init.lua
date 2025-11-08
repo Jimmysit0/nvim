@@ -29,7 +29,10 @@ vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 
-vim.keymap.set('n', '<F5>', ':w<CR>:!g++ % -O2 -o %:r && ./%:r < %:h/input.txt<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<F5>',
+  ':w<CR>:!g++ % -O2 -o %:p:r && %:p:r < %:h/input.txt<CR>',
+  { noremap = true, silent = true }
+)
 
 vim.o.clipboard = "unnamedplus"
 
