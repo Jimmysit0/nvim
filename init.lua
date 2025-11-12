@@ -14,8 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 -- basic stuff
-vim.o.number = true
-vim.o.relativenumber = true
+vim.opt.number = true
+vim.opt.relativenumber = false
 vim.o.clipboard = "unnamedplus"
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
@@ -30,9 +30,10 @@ vim.keymap.set("n", "K", vim.lsp.buf.hover)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 
 vim.keymap.set('n', '<F5>',
-  ':w<CR>:!g++ % -O2 -o %:p:r && %:p:r < %:h/input.txt<CR>',
+  ':w<CR>:!g++ -std=c++17 % -O2 -o %:p:r && %:p:r < %:h/input.txt<CR>',
   { noremap = true, silent = true }
 )
+
 
 vim.o.clipboard = "unnamedplus"
 
@@ -47,8 +48,9 @@ local cpp_template = [[
 using namespace std;
 
 int32_t main() {
-	int a, b, c; cin >> a >> b >> c;
-	cout << "The sum of these three numbers is " << a + b + c << "\n";
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	int t; cin >> t; 
 }
 ]]
 
