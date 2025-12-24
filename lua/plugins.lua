@@ -61,7 +61,18 @@ return {
 	-- Rainbow parens	
 	{
   		"hiphish/rainbow-delimiters.nvim",
+	},
 
+	-- Bar/Modeline	
+	{
+	  "nvim-lualine/lualine.nvim",
+	  dependencies = { "nvim-tree/nvim-web-devicons" }
+	},
+
+	-- Icons
+	{
+	  "nvim-tree/nvim-web-devicons",
+	  lazy = true
 	}
 
 }

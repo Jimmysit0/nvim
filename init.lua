@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
+require("config.lualine")
 
 -- basic stuff
 vim.opt.number = true
@@ -21,6 +22,7 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = false
 vim.o.termguicolors = true
+vim.opt.showmode = false
 
 -- NvimTree
 vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
