@@ -17,12 +17,29 @@ require("config.lualine")
 -- basic stuff
 vim.opt.number = true
 vim.opt.relativenumber = false
-vim.o.clipboard = "unnamedplus"
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = false
-vim.o.termguicolors = true
 vim.opt.showmode = false
+
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = false
+
+vim.opt.clipboard = "unnamedplus"
+vim.opt.termguicolors = true
+
+-- behavior / UX
+vim.opt.smartindent = true
+vim.opt.wrap = false
+vim.opt.cursorline = true
+vim.opt.mouse = "a"
+vim.opt.undofile = true
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- remove the terminal "borders"
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 -- NvimTree
 vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
@@ -35,9 +52,6 @@ vim.keymap.set('n', '<F5>',
   ':w<CR>:!g++ -std=c++17 % -O2 -o %:p:r && %:p:r < %:h/input.txt<CR>',
   { noremap = true, silent = true }
 )
-
-
-vim.o.clipboard = "unnamedplus"
 
 -- .cpp files - competitive programming
 local cpp_template = [[
