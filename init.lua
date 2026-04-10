@@ -60,6 +60,8 @@ local cpp_template = [[
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <map>
+#include <set>
 #define int long long
 using namespace std;
 

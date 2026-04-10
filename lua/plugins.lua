@@ -34,11 +34,11 @@ return {
 
     -- Theme
     {
-        "folke/tokyonight.nvim",
+        "wtfox/jellybeans.nvim",
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd("colorscheme tokyonight")
+            vim.cmd("colorscheme jellybeans")
         end
     },
 
